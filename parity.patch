@@ -1,7 +1,7 @@
 diff -ru AltSoftSerialOrig/AltSoftSerial.cpp AltSoftSerial/AltSoftSerial.cpp
 --- AltSoftSerialOrig/AltSoftSerial.cpp	2013-09-14 17:50:20.679368900 +0200
 +++ AltSoftSerial/AltSoftSerial.cpp	2013-09-14 17:46:02.268588700 +0200
-@@ -52,13 +52,17 @@
+@@ -56,13 +56,17 @@
  static volatile uint8_t tx_buffer_tail;
  #define TX_BUFFER_SIZE 68
  static volatile uint8_t tx_buffer[RX_BUFFER_SIZE];
@@ -267,6 +267,7 @@ diff -ru AltSoftSerialOrig/AltSoftSerial.h AltSoftSerial/AltSoftSerial.h
  	~AltSoftSerial() { end(); }
 -	static void begin(uint32_t baud) { init((F_CPU + baud / 2) / baud); }
 +	static void begin(uint32_t baud, uint8_t config = SERIAL_8N1) { init((F_CPU + baud / 2) / baud, config); }
++   static void begin(uint32_t baud) { init((ALTSS_BASE_FREQ + baud / 2) / baud, SERIAL_8N1); }
  	static void end();
  	int peek();
  	int read();
