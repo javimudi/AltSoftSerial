@@ -267,7 +267,7 @@ diff -ru AltSoftSerialOrig/AltSoftSerial.h AltSoftSerial/AltSoftSerial.h
  	~AltSoftSerial() { end(); }
 -	static void begin(uint32_t baud) { init((F_CPU + baud / 2) / baud); }
 +	static void begin(uint32_t baud, uint8_t config = SERIAL_8N1) { init((F_CPU + baud / 2) / baud, config); }
-+   static void begin(uint32_t baud) { init((ALTSS_BASE_FREQ + baud / 2) / baud, SERIAL_8N1); }
++	static void begin(uint32_t baud) { init((ALTSS_BASE_FREQ + baud / 2) / baud, SERIAL_8N1); }
  	static void end();
  	int peek();
  	int read();
