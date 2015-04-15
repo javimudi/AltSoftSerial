@@ -67,7 +67,7 @@ static uint8_t total_bits, almost_total_bits; // these are sums calculated durin
 #define INPUT_PULLUP INPUT
 #endif
 
-void AltSoftSerial::init(uint32_t cycles_per_bit), uint8_t config
+void AltSoftSerial::init(uint32_t cycles_per_bit, uint8_t config)
 {
 	if (cycles_per_bit < 7085) {
 		CONFIG_TIMER_NOPRESCALE();
